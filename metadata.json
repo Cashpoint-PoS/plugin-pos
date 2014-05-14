@@ -1,10 +1,17 @@
 {
-	"name":"pos",
-	"version":"git",
-	"deps":[],
-	"tables":[
-		"ks_buttons",
-		"ks_layouts",
-		"link_ks_layout_buttons"
-	]	
+  "name":"pos",
+  "version":"git",
+  "deps":[
+    
+  ],
+  "tables":[
+    "ks_buttons",
+    "ks_layouts",
+    "link_ks_layout_buttons"
+  ],
+  "tableRevs":{
+    "ks_buttons":0,
+    "ks_layouts":0,
+    "link_ks_layout_buttons":0
+  }
 }
