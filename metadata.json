@@ -1,5 +1,6 @@
 {
   "name":"pos",
+  "desc":"CashPoint PoS",
   "version":"git",
   "deps":[
     
