@@ -1,8 +1,8 @@
 <?
-require("../lib.php");
+require("../../../lib.php");
 //check if we're logged in
 if(!isset($_SESSION["user"]))
-  redir("../index.php");
+  redir("../../../index.php");
 
 ?>
 <!doctype html>

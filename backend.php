@@ -132,3 +132,5 @@ plugins_register_backend_handler($plugin,"transactions","removefrominvoice","KS_
 plugins_register_backend_handler($plugin,"transactions","getopeninvoices","KS_getOpenInvoices");
 plugins_register_backend_handler($plugin,"transactions","opennewinvoice","KS_openNewInvoice");
 plugins_register_backend_handler($plugin,"transactions","registerpayment","KS_registerPayment");
+
+plugins_register_target($plugin,"app/index.php","Kassensystem");
