@@ -12,15 +12,15 @@ if(!isset($_SESSION["user"]))
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=0,width=320.1" />
     <meta name="google" value="notranslate" />
     <title>Kassensystem</title>
-    <script type="text/javascript" src="js/console.js"></script>
-    <script type="text/javascript" src="js/api.js"></script>
-    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
-    <script type="text/javascript" src="js/jquery.ba-hashchange.js"></script>
-    <script type="text/javascript" src="js/sprintf.js"></script>
-    <script type="text/javascript" src="js/date.format.js"></script>
+    <script type="text/javascript" src="<?=$config["paths"]["webroot"]?>/shared-js/console.js"></script>
+    <script type="text/javascript" src="<?=$config["paths"]["webroot"]?>/shared-js/api.js"></script>
+    <script type="text/javascript" src="<?=$config["paths"]["webroot"]?>/shared-js/jquery-2.1.0.js"></script>
+    <script type="text/javascript" src="<?=$config["paths"]["webroot"]?>/shared-js/jquery.ba-hashchange.js"></script>
+    <script type="text/javascript" src="<?=$config["paths"]["webroot"]?>/shared-js/sprintf.js"></script>
+    <script type="text/javascript" src="<?=$config["paths"]["webroot"]?>/shared-js/date.format.js"></script>
     <script type="text/javascript" src="js/bililiteRange.js"></script>
     <script type="text/javascript" src="js/jquery.sendkeys.js"></script>
-    <script type="text/javascript" src="js/i18n.js"></script>
+    <script type="text/javascript" src="<?=$config["paths"]["webroot"]?>/shared-js/i18n.js"></script>
     <script type="text/javascript" src="i18n/de.js"></script>
     
     <script type="text/javascript">
