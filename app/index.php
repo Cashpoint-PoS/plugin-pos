@@ -289,7 +289,7 @@ function index_paymentCash_setMatching() {
   $("#index-modal-payment-cash-amount-cent").val(dueCent).change();
   
 }
-$(document).on("ks_view_index",function() {
+$(document).on("cashpoint_view_index",function() {
   $("#view-index").show();
   $("#index-rightpane-scannerentry").focus();
 });
@@ -411,7 +411,7 @@ $(document).ready(function() {
     location.hash="admin/index";
   });
 });
-$(document).on("ks_view_admin",function(a,b) {
+$(document).on("cashpoint_view_admin",function(a,b) {
   var subview=b.args;
   if(!subview) {
     location.hash="admin/index";
@@ -420,16 +420,16 @@ $(document).on("ks_view_admin",function(a,b) {
   
   var v=/^\#([^\/\s]+)(?:\/([^\s]*))?$/.exec("#"+subview);
   if(!v) {
-    console.gerror("ks_view_admin","invalid hash",subview);
+    console.gerror("cashpoint_view_admin","invalid hash",subview);
     return;
   }
-  console.glog("ks_view_admin","opening subview",v[1],"with args",v[2]);
+  console.glog("cashpoint_view_admin","opening subview",v[1],"with args",v[2]);
   $("#view-admin").show();
   $("#admin-rightpane .subview").hide();
   $("#admin-subview-"+v[1]).show();
-  $(document).trigger("ks_view_admin_"+v[1],{args:v[2]});
+  $(document).trigger("cashpoint_view_admin_"+v[1],{args:v[2]});
 });
-$(document).on("ks_view_admin_layout",function() {
+$(document).on("cashpoint_view_admin_layout",function() {
   var $c=$("#admin-subview-layout-layout-list tbody").empty();
   doAPIRequest("list",{mod:"ks",sub:"layouts"},function(data) {
     data=data.data;
@@ -458,7 +458,7 @@ $(document).on("ks_view_admin_layout",function() {
     });
   });
 });
-$(document).on("ks_view_admin_users",function() {
+$(document).on("cashpoint_view_admin_users",function() {
   var $c=$("#admin-subview-users-list tbody").empty();
   doAPIRequest("list",{mod:"user",sub:"users"},function(data) {
     data=data.data;
@@ -478,7 +478,7 @@ $(document).on("ks_view_admin_users",function() {
     });
   });
 });
-$(document).on("ks_view_admin_wawi_prodlist",function() {
+$(document).on("cashpoint_view_admin_wawi_prodlist",function() {
   var $c=$("#admin-subview-wawi_prodlist-list tbody").empty();
   doAPIRequest("list",{mod:"wawi",sub:"articles"},function(data) {
     data=data.data;
@@ -494,7 +494,7 @@ $(document).on("ks_view_admin_wawi_prodlist",function() {
     });
   });
 });
-$(document).on("ks_view_admin_invoices_list",function() {
+$(document).on("cashpoint_view_admin_invoices_list",function() {
   var $c=$("#admin-subview-invoices_list-list tbody").empty();
   doAPIRequest("showbilllist",{mod:"invoicing",sub:"transactions"},function(data) {
     data=data.data;
@@ -516,7 +516,7 @@ $(document).on("ks_view_admin_invoices_list",function() {
     });
   });
 });
-$(document).on("ks_view_admin_wawi_proddetail",function(a,b) {
+$(document).on("cashpoint_view_admin_wawi_proddetail",function(a,b) {
   var id=b.args;
   if(!id)
     return;
@@ -545,7 +545,7 @@ $(document).on("ks_view_admin_wawi_proddetail",function(a,b) {
           sku:$(".data-anr input",$c).val(),
         }
         doAPIRequest("submit",{mod:"wawi",sub:"articles",json_input:JSON.stringify(sobj)},function(data) {
-          $(document).trigger("ks_view_admin_wawi_proddetail",{args:id});
+          $(document).trigger("cashpoint_view_admin_wawi_proddetail",{args:id});
         });
       });
     });
@@ -575,7 +575,7 @@ $(document).on("ks_view_admin_wawi_proddetail",function(a,b) {
         };
         console.glog("admin.wawi_proddetail.price_edit","submitting",sobj);
         doAPIRequest("submit",{mod:"wawi",sub:"prices",json_input:JSON.stringify(sobj)},function() {
-          $(document).trigger("ks_view_admin_wawi_proddetail",{args:id});
+          $(document).trigger("cashpoint_view_admin_wawi_proddetail",{args:id});
         });
       };
       $("<button>").appendTo($atd).html("Bearbeiten").click(eh);
@@ -583,7 +583,7 @@ $(document).on("ks_view_admin_wawi_proddetail",function(a,b) {
         if(!confirm("Wirklich löschen?"))
           return;
         doAPIRequest("delete",{mod:"wawi",sub:"prices",id:e._raw.id},function() {
-          $(document).trigger("ks_view_admin_wawi_proddetail",{args:id});
+          $(document).trigger("cashpoint_view_admin_wawi_proddetail",{args:id});
         });
       });
     });
@@ -609,7 +609,7 @@ $(document).on("ks_view_admin_wawi_proddetail",function(a,b) {
         };
         console.glog("admin.wawi_proddetail.price_edit","submitting",sobj);
         doAPIRequest("submit",{mod:"wawi",sub:"prices",json_input:JSON.stringify(sobj)},function() {
-          $(document).trigger("ks_view_admin_wawi_proddetail",{args:id});
+          $(document).trigger("cashpoint_view_admin_wawi_proddetail",{args:id});
         });
       });
       $("<button>").appendTo($atd).html("Löschen").click(function() {
@@ -637,7 +637,7 @@ $(document).on("ks_view_admin_wawi_proddetail",function(a,b) {
         };
         console.glog("admin.wawi_proddetail.barcode_edit","submitting",sobj);
         doAPIRequest("submit",{mod:"wawi",sub:"barcodes",json_input:JSON.stringify(sobj)},function() {
-          $(document).trigger("ks_view_admin_wawi_proddetail",{args:id});
+          $(document).trigger("cashpoint_view_admin_wawi_proddetail",{args:id});
         });
       };
       $("<button>").appendTo($atd).html("Bearbeiten").click(eh);
@@ -660,7 +660,7 @@ $(document).on("ks_view_admin_wawi_proddetail",function(a,b) {
         };
         console.glog("admin.wawi_proddetail.barcode_edit","submitting",sobj);
         doAPIRequest("submit",{mod:"wawi",sub:"barcodes",json_input:JSON.stringify(sobj)},function() {
-          $(document).trigger("ks_view_admin_wawi_proddetail",{args:id});
+          $(document).trigger("cashpoint_view_admin_wawi_proddetail",{args:id});
         });
       });
       $("<button>").appendTo($atd).html("Löschen").click(function() {
@@ -683,33 +683,8 @@ $(document).ready(function() {
     });
   });
 });
-//must come last
-$(document).ready(function() {
-  console.glog("component.nav","initializing");
-  appstate.view="";
-  $(window).hashchange(function() {
-    var h=location.hash;
-    //check for empty hash (or that anti-XSS crap facebook puts to the login redirect)
-    if(!h || h=="#_=_" || h=="#") {
-      location.hash="index";
-      return;
-    }
-    //This is one ugly fucker of a regexp.
-    //For an explanation see http://regex101.com/r/yP8vV2
-    var v=/^\#([^\/\s]+)(?:\/([^\s]*))?$/.exec(h);
-    if(!v) {
-      console.gerror("component.nav","invalid hash",h);
-      return;
-    }
-    console.glog("component.nav","opening view",v[1],"with args",v[2]);
-    appstate.view=v[1];
-    $(".view").hide();
-    $(document).trigger("ks_view_"+v[1],{args:v[2]});
-  }).hashchange();
-});
-
-
     </script>
+		<script type="text/javascript" src="<?=$config["paths"]["webroot"]?>/shared-js/view.js"></script>
     <style type="text/css">
 /* <!-- */
 /* joe fucks up highlight when tag name is just a * m( */
