@@ -532,7 +532,7 @@ $(document).on("cashpoint_view_admin_wawi_proddetail",function(a,b) {
     $(".data-shortdesc",$c).html(data._raw.shortdesc);
     $(".data-longdesc",$c).html("").append($("<pre>"));
     $(".data-longdesc pre",$c).html(data._raw.longdesc);
-    $("#admin-subview-wawi_proddetail-details-edit").html("Bearbeiten").click(function() {
+    $("#admin-subview-wawi_proddetail-details-edit").html("Bearbeiten").off("click").click(function() {
       var $anrf=$("<input>").appendTo($(".data-anr",$c).html("")).attr("type","text").val(data._raw.sku);
       var $sdf=$("<input>").appendTo($(".data-shortdesc",$c).html("")).attr("type","text").val(data._raw.shortdesc);
       var $ldf=$("<textarea>").appendTo($(".data-longdesc",$c).html("")).attr("type","text").text(data._raw.longdesc).val(data._raw.longdesc);
